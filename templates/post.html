@@ -1,0 +1,38 @@
+{% extends 'layout.html' %} {% block body %}
+
+<!-- Page Header -->
+{% set img_file = posts[0]['img_file'] %}
+<header
+  class="masthead"
+  style="background-image: url('/static/img/{{img_file}}')"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{ posts[0]['title'] }}</h1>
+          <h2 class="subheading">{{posts[0]['tagline']}}</h2>
+          <span class="meta"
+            >Posted by
+            <a href="#">Start Bootstrap</a>
+            on {{ posts[0]['date'] }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{ posts[0]['content'] }}
+      </div>
+    </div>
+  </div>
+</article>
+
+{% endblock %}

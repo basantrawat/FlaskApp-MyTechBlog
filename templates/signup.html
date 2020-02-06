@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static', filename='css/signin.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static', filename='css/clean-blog.min.css')}}"
+      rel="stylesheet"
+    />
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="{{url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="shortcut icon" type="image/png" href="static/img/fav.png" />
+    <style>
+      .nav-link {
+        color: rgb(83, 83, 83) !important;
+      }
+      .navbar-brand {
+        color: #343a40 !important;
+      }
+
+      .navbar {
+        background-color: rgb(255, 255, 255) !important;
+      }
+
+      form {
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      }
+    </style>
+
+    <title>Signup</title>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light fixed-top text-left"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index">{{params['blog_name']}}</a>
+        <button
+          class="navbar-toggler navbar-toggler-right"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index"> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact">Contact</a>
+            </li>
+            {% if username %}
+            <li class="nav-item">
+              <a class="nav-link" href="">Logout</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="http://127.0.0.1:5000/login">Login</a>
+            </li>
+
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <span style="font-size:24px; color:rgb(76, 77, 76); font-weight: bold;">
+            Create a new Account
+          </span>
+          <form
+            name="sentMessage"
+            action="/signup"
+            method="post"
+            id="contactForm"
+            novalidate
+          >
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>UserName</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                  id="name"
+                  name="username"
+                  required
+                  data-validation-required-message="Please enter username."
+                />
+                <p cslass="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Email Address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email Address"
+                  id="email"
+                  name="usermail"
+                  required
+                  data-validation-required-message="Please enter your email address."
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div
+                class="form-group col-xs-12 floating-label-form-group controls"
+              >
+                <label>Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="Password"
+                  id="password"
+                  required
+                  data-validation-required-message="Enter Password"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br />
+            <div id="success"></div>
+            <div class="form-group">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="sendMessageButton"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+     <!-- Bootstrap core JavaScript -->
+     <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+     <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+ 
+     <!-- Custom scripts for this template -->
+     <script src="{{url_for('static', filename='js/clean-blog.min.js')}}"></script>
+  </body>
+</html>
